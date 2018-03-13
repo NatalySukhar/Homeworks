@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -11,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainPage {
-    private WebDriver driver;
+    private EventFiringWebDriver driver;
     private By category= By.id("subtab-AdminCatalog");
     private By newCategory= By.id("page-header-desc-category-new_category");
    private By nameCategory= By.id("name_1");
@@ -22,7 +23,7 @@ public class MainPage {
     private By waitCategory= By.className("pointer");
 
 
-    public MainPage(WebDriver driver){this.driver=driver;}
+    public MainPage(EventFiringWebDriver driver){this.driver=driver;}
     public void nameCategory(){
         WebDriverWait wait=new WebDriverWait(driver,10);
         wait.until(ExpectedConditions.elementToBeClickable(nameCategory));

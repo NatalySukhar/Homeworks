@@ -1,15 +1,13 @@
 package scriptHW3.tests;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 import scriptHW3.pages.Login;
 import scriptHW3.pages.MainPage;
 import scriptHW3.DriverScript;
 
 public class MyScript extends DriverScript {
     public static void main(String[] args)  {
-        WebDriver driver=getDriver();
+        EventFiringWebDriver driver=getConfiguredDriver();
         Login login=new Login(driver);
         login.open();
         login.makeEInput();
