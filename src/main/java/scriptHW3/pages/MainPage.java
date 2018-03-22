@@ -15,7 +15,7 @@ public class MainPage {
     private EventFiringWebDriver driver;
     private By category= By.id("subtab-AdminCatalog");
     private By newCategory= By.id("page-header-desc-category-new_category");
-   private By nameCategory= By.id("name_1");
+    private By nameCategory= By.id("name_1");
     private String name="Бытовая техника";
     private By submitCategory= By.id("category_form_submit_btn");
     private By alertMes= By.className("alert-success");
@@ -42,7 +42,7 @@ public class MainPage {
         wait.until(ExpectedConditions.elementToBeClickable(submitCategory));
         driver.findElement(submitCategory).click();}
     public void filterCategory(){
-                driver.findElements(filtrCategory).get(1).click();}
+        driver.findElements(filtrCategory).get(1).click();}
     public void waitCategory(){
         WebDriverWait wait=new WebDriverWait(driver,10);
         wait.until(ExpectedConditions.elementToBeClickable(waitCategory));
@@ -53,14 +53,17 @@ public class MainPage {
             names.add(x.getText());}
         for (String x: names){
 
-      if(x.equals(name))
-          System.out.println("Категория "+name+" отфильтрована");}}
+            if(x.equals(name))
+                System.out.println("Категория "+name+" отфильтрована");}}
 
     public void selectCategory(){
         WebDriverWait wait=new WebDriverWait(driver,10);
         wait.until(ExpectedConditions.elementToBeClickable(category));
         WebElement element=driver.findElement(category);
-    Actions actions=new Actions(driver);
-    actions.moveToElement(element).build().perform();
-    element.findElements(By.cssSelector("li")).get(1).click();}
+        Actions actions=new Actions(driver);
+        actions.moveToElement(element).build().perform();
+        wait.until(ExpectedConditions.elementToBeClickable( element.findElements(By.cssSelector("li")).get(1)));
+        element.findElements(By.cssSelector("li")).get(1).click();}
 }
+
+
